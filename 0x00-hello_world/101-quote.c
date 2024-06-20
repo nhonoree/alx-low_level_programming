@@ -1,12 +1,9 @@
-#include <stdio.h>
-/**
- * main - Entry point
- *
- * Return: Always 1 (Sucess)
- /
- int main(void)
- {
- write(2,
- "and that piece of art is useful\" - Dora korpar, 2015-10-19\n", 59);
- return (1);
- }
+#include <unistd.h>
+
+int main(void)
+{
+	char *msg ="and that piece of the art is useful\" -Dora korpar, 2015-10-19\n";
+	write(2, msg, 59);
+	return (1);
+}
+
