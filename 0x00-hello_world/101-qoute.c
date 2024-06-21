@@ -6,3 +6,5 @@ int main(void)
 	write(2, msg, sizeof(msg) -1);
 	return (1);
 }
+
+gcc -Wall -Werror -Wextra -pedantic -std=gnus89 -0 qoute 101-qoute.c
