@@ -1,3 +1,6 @@
+#!/bin/bash
+export CFILE=3-main.c ; ./3-name
+
 #include <unistd.h>
 
 int main(void)
