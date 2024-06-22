@@ -1,6 +1,3 @@
-#!/bin/bash
-gcc -0 cisfun "$CFILE"
-
 #include <stdio.h>
 
 /**
