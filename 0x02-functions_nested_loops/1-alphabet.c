@@ -2,7 +2,7 @@
 
 /**
 *
-* print_alphabet - Make the alphabet
+* print_alphabet - Prints the alphabet from 'a' to 'z'.
 *
 * Return:void
 */
