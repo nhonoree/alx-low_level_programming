@@ -13,5 +13,7 @@ void jack_bauer(void);
 void times_table(void);
 void print_times_table(int n);
 int calculate_sum(int limit);
+int add(int a, int b);
+int _putchar(char c);
 
 #endif /* MAIN_H */
