@@ -2,9 +2,11 @@
 #include "main.h"
 
 /**
- * main - tests a leap year date (02/29/2000) with print_remaining_days function
+ * main - takes a date and prints how many days are left in the year, taking
+ * leap years into account
  * Return: 0
  */
+
 int main(void)
 {
     int month;
