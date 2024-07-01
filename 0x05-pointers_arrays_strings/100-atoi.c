@@ -8,39 +8,31 @@
  */
 int _atoi(char *s)
 {
-	int i = 0;
-	int sign = 1;
-	int result = 0;
-	int digit;
+    int i = 0;
+    int sign = 1;
+    int result = 0;
 
-	/* Skip non-numeric characters and handle signs */
-	while (s[i] != '\0')
-	{
-		if (s[i] == '-')
-		{
-			sign *= -1;
-		}
-		else if (s[i] >= '0' && s[i] <= '9')
-		{
-			break;
-		}
-		i++;
-	}
+    /* Skip non-numeric characters and handle signs */
+    while (s[i] != '\0')
+    {
+        if (s[i] == '-')
+        {
+            sign *= -1;
+        }
+        else if (s[i] >= '0' && s[i] <= '9')
+        {
+            break;
+        }
+        i++;
+    }
 
-	/* Convert the string to an integer */
-	while (s[i] >= '0' && s[i] <= '9')
-	{
-		digit = s[i] - '0';
+    /* Convert the string to an integer */
+    while (s[i] >= '0' && s[i] <= '9')
+    {
+        result = result * 10 + (s[i] - '0');
+        i++;
+    }
 
-		/* Check for overflow before multiplying and adding */
-		if (result > (INT_MAX - digit) / 10)
-		{
-			return (sign == 1 ? INT_MAX : INT_MIN);
-		}
-
-		result = result * 10 + digit;
-		i++;
-	}
-
-	return (result * sign);
+    return (result * sign);
 }
+
