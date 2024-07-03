@@ -7,46 +7,39 @@
  * @r: buffer to store the result
  * @size_r: buffer size
  *
- * Return: pointer to the result or 0 if result cannot be stored in r
+ * Return: pointer to the result or 0 if it cannot be stored in r
  */
 char *infinite_add(char *n1, char *n2, char *r, int size_r)
 {
-	int i, j, k, len1, len2, sum, carry;
+	int i, j, k, l, m, n;
 
-	for (len1 = 0; n1[len1] != '\0'; len1++)
+	for (i = 0; n1[i]; i++)
 		;
-	for (len2 = 0; n2[len2] != '\0'; len2++)
+	for (j = 0; n2[j]; j++)
 		;
-
-	if (len1 >= size_r || len2 >= size_r)
+	if (i > size_r || j > size_r)
 		return (0);
-
-	carry = 0;
-	for (i = len1 - 1, j = len2 - 1, k = 0; k < size_r - 1; i--, j--, k++)
+	m = 0;
+	for (i -= 1, j -= 1, k = 0; k < size_r - 1; i--, j--, k++)
 	{
-		sum = carry;
+		n = m;
 		if (i >= 0)
-			sum += n1[i] - '0';
+			n += n1[i] - '0';
 		if (j >= 0)
-			sum += n2[j] - '0';
-
-		if (i < 0 && j < 0 && sum == 0)
+			n += n2[j] - '0';
+		if (i < 0 && j < 0 && n == 0)
 			break;
-
-		carry = sum / 10;
-		r[k] = (sum % 10) + '0';
+		m = n / 10;
+		r[k] = n % 10 + '0';
 	}
-	if (i >= 0 || j >= 0 || carry)
-		return (0);
-
 	r[k] = '\0';
-
-	for (i = 0, j = k - 1; i < j; i++, j--)
+	if (i >= 0 || j >= 0 || m)
+		return (0);
+	for (k -= 1, l = 0; l < k; k--, l++)
 	{
-		char temp = r[i];
-		r[i] = r[j];
-		r[j] = temp;
+		m = r[k];
+		r[k] = r[l];
+		r[l] = m;
 	}
-
 	return (r);
 }
