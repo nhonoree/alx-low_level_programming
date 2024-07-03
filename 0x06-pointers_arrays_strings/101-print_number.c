@@ -3,23 +3,21 @@
 /**
  * print_number - Prints an integer
  * @n: The integer to be printed
- *
- * Return: void
  */
 void print_number(int n)
 {
-    unsigned int num = n;
+    unsigned int num;
 
-    if (n < 0)
-    {
+    if (n < 0) {
         _putchar('-');
-        num = -n;
+        num = (unsigned int)(-n);  // Convert negative n to unsigned int
+    } else {
+        num = (unsigned int)n;
     }
 
-    if (num / 10)
-    {
-        print_number(num / 10);
+    if (num / 10 != 0) {
+        print_number(num / 10);  // Recursive call to print digits recursively
     }
 
-    _putchar((num % 10) + '0');
+    _putchar((num % 10) + '0');  // Print each digit
 }
