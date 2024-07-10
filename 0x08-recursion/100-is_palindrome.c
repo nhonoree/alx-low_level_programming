@@ -1,10 +1,13 @@
 #include "main.h"
 
+int _strlen_recursion(char *s);
+int check_palindrome(char *s, int start, int end);
+
 /**
- * _strlen_recursion - Returns the length of a string
- * @s: The string to measure
+ * _strlen_recursion - returns the length of a string
+ * @s: the string to measure
  *
- * Return: The length of the string
+ * Return: the length of the string
  */
 int _strlen_recursion(char *s)
 {
@@ -14,10 +17,10 @@ int _strlen_recursion(char *s)
 }
 
 /**
- * check_palindrome - Helper function to check if a string is a palindrome
- * @s: The string to check
- * @start: The starting index
- * @end: The ending index
+ * check_palindrome - checks if a string is a palindrome
+ * @s: the string to check
+ * @start: the starting index
+ * @end: the ending index
  *
  * Return: 1 if the string is a palindrome, 0 otherwise
  */
@@ -31,13 +34,17 @@ int check_palindrome(char *s, int start, int end)
 }
 
 /**
- * is_palindrome - Returns 1 if a string is a palindrome, 0 otherwise
- * @s: The string to check
+ * is_palindrome - checks if a string is a palindrome
+ * @s: the string to check
  *
  * Return: 1 if the string is a palindrome, 0 otherwise
  */
 int is_palindrome(char *s)
 {
-	int len = _strlen_recursion(s);
-	return (check_palindrome(s, 0, len - 1));
+	int length = _strlen_recursion(s);
+
+	if (length <= 1)
+		return (1);
+
+	return (check_palindrome(s, 0, length - 1));
 }
