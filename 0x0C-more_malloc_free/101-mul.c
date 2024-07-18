@@ -57,3 +57,41 @@ int main(int argc, char *argv[])
     len1 = _strlen(num1);
     len2 = _strlen(num2);
     len = len1 + len2;
+    result = malloc(sizeof(int) * len);
+    if (result == NULL)
+    {
+        printf("Error\n");
+        exit(98);
+    }
+
+    for (i = 0; i < len; i++)
+        result[i] = 0;
+
+    for (i = len1 - 1; i >= 0; i--)
+    {
+        carry = 0;
+        digit1 = num1[i] - '0';
+        for (j = len2 - 1; j >= 0; j--)
+        {
+            digit2 = num2[j] - '0';
+            carry += result[i + j + 1] + (digit1 * digit2);
+            result[i + j + 1] = carry % 10;
+            carry /= 10;
+        }
+        result[i + j + 1] += carry;
+    }
+
+    i = 0;
+    while (i < len && result[i] == 0)
+        i++;
+
+    if (i == len)
+        _putchar('0');
+
+    for (; i < len; i++)
+        _putchar(result[i] + '0');
+
+    _putchar('\n');
+    free(result);
+    return (0);
+}
