@@ -1,18 +1,18 @@
 #include "main.h"
+#include <stddef.h>
 
 char *_strpbrk(char *s, char *accept)
 {
-    char *p;
-
     while (*s)
     {
-        for (p = accept; *p != '\0'; p++)
+        char *a = accept;
+        while (*a)
         {
-            if (*s == *p)
-                return s;
+            if (*s == *a)
+                return (s);
+            a++;
         }
         s++;
     }
-
-    return NULL;
+    return NULL; // Return NULL if no match is found.
 }

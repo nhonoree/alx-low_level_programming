@@ -1,13 +1,13 @@
 #include "main.h"
+#include <stddef.h>
 
 char *_strchr(char *s, char c)
 {
-    while (*s != '\0')
+    while (*s)
     {
         if (*s == c)
-            return s;
+            return (s);
         s++;
     }
-
-    return (*s == c ? s : NULL);
+    return NULL; // Ensure you return NULL if the character isn't found.
 }
