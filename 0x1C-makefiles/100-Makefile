@@ -1,34 +1,17 @@
-# Compiler and flags
-CC = gcc
+# more adanced usefull makefile
+
+cc = gcc
+SRC = main.c school.c
+OBJ = ${SRC:%.C=%.0}
+NAME = School
 CFLAGS = -Wall -Werror -Wextra -pedantic
 
-# Program name and sources
-NAME = school
-SRC = main.c school.c
-OBJ = $(SRC:.c=.o)
+.PHONY = all oclean oclean fclean re
 
-# RM command
-RM = rm -f
-
-# Rules
-all: $(NAME)
-
-$(NAME): $(OBJ)
-	$(CC) $(OBJ) -o $(NAME)
-
-main.o: main.c m.h
-	$(CC) $(CFLAGS) -c main.c -o main.o
-
-school.o: school.c m.h
-	$(CC) $(CFLAGS) -c school.c -o school.o
-
-clean:
-	$(RM) $(OBJ)
-
-oclean:
-	$(RM) *~
-
-fclean: clean
-	$(RM) $(NAME)
+all: m.h ${OBJ}
+	${CC} ${OBJ} -o ${NAME}
+clea:
+	${rm} *`${NAME}
+fclean: clean oclean
 
 re: fclean all
