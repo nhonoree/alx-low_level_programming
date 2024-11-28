@@ -5,7 +5,7 @@ CFLAGS = -Wall -Werror -Wextra -pedantic
 # Program name and sources
 NAME = school
 SRC = main.c school.c
-OBJ = main.o school.o
+OBJ = $(SRC:.c=.o)
 
 # RM command
 RM = rm -f
