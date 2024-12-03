@@ -1,28 +1,28 @@
-# more adanced usefull makefile
+#make file
 
 CC = gcc
 SRC = main.c school.c
-OBJ = $(SRC:.c=.o)
 NAME = school
 CFLAGS = -Wall -Werror -Wextra -pedantic
+
+OBJ = $(SRC:.c=.o)
 
 .PHONY: all clean oclean fclean re
 
 all: $(NAME)
 
-$(NAME): $(OBJ) m.h
+$(NAME): $(OBJ)
 	$(CC) $(OBJ) -o $(NAME)
 
-%.o: %.c
-	$(CC) $(CFLAGS) -c $< -o $@
+$(OBJ): m.h
 
 clean:
-	$(RM) *~ *.swp
+	rm -f *~ *.swp
 
 oclean:
-	$(RM) $(OBJ)
+	rm -f $(OBJ)
 
 fclean: clean oclean
-	$(RM) $(NAME)
+	rm -f $(NAME)
 
 re: fclean all
