@@ -1,5 +1,3 @@
-#make file
-
 CC = gcc
 SRC = main.c school.c
 NAME = school
@@ -15,6 +13,7 @@ $(NAME): $(OBJ)
 	$(CC) $(OBJ) -o $(NAME)
 
 $(OBJ): m.h
+	touch $@
 
 clean:
 	rm -f *~ *.swp
@@ -22,7 +21,7 @@ clean:
 oclean:
 	rm -f $(OBJ)
 
-fclean: clean oclean
+fclean: clean
 	rm -f $(NAME)
 
 re: fclean all
