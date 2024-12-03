@@ -6,12 +6,16 @@ OBJ = ${SRC:%.C=%.0}
 NAME = School
 CFLAGS = -Wall -Werror -Wextra -pedantic
 
-.PHONY = all oclean oclean fclean re
+.PHONY = all clean oclean fclean re
 
 all: m.h ${OBJ}
 	${CC} ${OBJ} -o ${NAME}
-clea:
-	${rm} *`${NAME}
+clean:
+	${RM} *~${NAME}
+
+oclean:
+	${RM} ${OBJ}
+
 fclean: clean oclean
 
 re: fclean all
